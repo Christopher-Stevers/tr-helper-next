@@ -21,6 +21,7 @@ const Uploader = () => {
   const [duplicateFilePath, setDuplicateFilePath] = useState<string | null>(
     null
   );
+  const [newXmlFilePath, setNewXmlFilePath] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     series: "",
     artist: "",
@@ -63,7 +64,8 @@ const Uploader = () => {
       `${process.env.NEXT_PUBLIC_API_URL}/processFile`,
       data
     );
-    const { newFilePath, previewFilePath, duplicateFilePath } = response.data;
+    const { newFilePath, previewFilePath, duplicateFilePath, newXmlFilePath } =
+      response.data;
     console.log("New file path:", response.data);
     console.log("New file path:", response.data);
 
@@ -82,6 +84,7 @@ const Uploader = () => {
           setWatchFolder(newFilePath);
           setPreviewFilePath(previewFilePath);
           setDuplicateFilePath(duplicateFilePath);
+          setNewXmlFilePath(newXmlFilePath);
           return true;
         }
       } catch (error) {
@@ -172,8 +175,8 @@ const Uploader = () => {
           {duplicateFilePath && (
             <Downloader filePath={duplicateFilePath} name="file for xml" />
           )}
-          {duplicateFilePath && (
-            <Downloader filePath={"uploads/annualaccess.xml"} name="xml" />
+          {newXmlFilePath && (
+            <Downloader filePath={newXmlFilePath} name="xml" />
           )}
         </div>
       </div>
