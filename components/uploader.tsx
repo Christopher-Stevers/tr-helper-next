@@ -107,7 +107,9 @@ const Uploader = () => {
           </div>
           <div>
             Please make sure you always use a different episode number from the
-            one before and upload a mp3 and xml file.
+            one before and upload a mp3 and xml file. Don't reload this page, it
+            messes up all the form fields, if you want to reload just exit and
+            open again.
           </div>
           <label htmlFor="mp3File">MP3 File:</label>
           <input
