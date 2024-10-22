@@ -8,7 +8,7 @@ const Downloader = ({
   filePath: string | null;
   name: string;
 }) => {
-  const watchFile = filePath?.replace("uploads\\", "") ?? "";
+  const watchFile = filePath?.replace("uploads/", "") ?? "";
   const handleDownload = async () => {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/download`,
